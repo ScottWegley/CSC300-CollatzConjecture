@@ -1,4 +1,5 @@
 ﻿Public Class frmCollatz
+    ' Completed Collatz Conjecture Project for CSC300
 
     Const intLoopLimit As Integer = 10000
 
