@@ -78,6 +78,6 @@
             lbxSingleCollatz.Items.Add(iterations & vbTab & n)
         End While
 
-        lbxSingleCollatz.Items.Add(iterations & vbTab & n)
+        lbxSingleCollatz.Items.Add(iterations + 1 & vbTab & iterateCollatz(n))
     End Sub
 End Class
