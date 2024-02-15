@@ -33,6 +33,18 @@
         Return intLoopCount
     End Function
 
+    Private Sub btnNextN_Click(sender As Object, e As EventArgs) Handles btnNextN.Click
+        Dim intInput As Integer
+        Try
+            intInput = CInt(txtInput.Text)
+        Catch ex As Exception
+            MsgBox("Your input to the Collatz Conjecture must be an Integer")
+            Return
+        End Try
+
+        txtNextIteration.Text = iterateCollatz(intInput)
+    End Sub
+
     Private Sub btnLoopCollatz_Click(sender As Object, e As EventArgs) Handles btnLoopCollatz.Click
         Dim intInput As Integer
         Try
@@ -44,5 +56,28 @@
 
         loopCollatz(intInput, lbxSingleCollatz)
 
+    End Sub
+
+    Private Sub btnFirst20_Click(sender As Object, e As EventArgs) Handles btnFirst20.Click
+        Dim intInput As Integer
+        Try
+            intInput = CInt(txtInput.Text)
+        Catch ex As Exception
+            MsgBox("Your input to the Collatz Conjecture must be an Integer")
+            Return
+        End Try
+
+        Dim iterations = 0
+        Dim n = intInput
+        lbxSingleCollatz.Items.Add("Iteration" & vbTab & "N")
+        lbxSingleCollatz.Items.Add(iterations & vbTab & n)
+
+        While iterateCollatz(n) <> 0 And iterateCollatz(n) <> 1 And iterations < 20
+            iterations = iterations + 1
+            n = iterateCollatz(n)
+            lbxSingleCollatz.Items.Add(iterations & vbTab & n)
+        End While
+
+        lbxSingleCollatz.Items.Add(iterations & vbTab & n)
     End Sub
 End Class
