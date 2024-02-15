@@ -67,12 +67,14 @@
             Return
         End Try
 
+        lbxSingleCollatz.Items.Clear()
+
         Dim iterations = 0
         Dim n = intInput
         lbxSingleCollatz.Items.Add("Iteration" & vbTab & "N")
         lbxSingleCollatz.Items.Add(iterations & vbTab & n)
 
-        While iterateCollatz(n) <> 0 And iterateCollatz(n) <> 1 And iterations < 20
+        While iterateCollatz(n) <> 1 And iterations < 19
             iterations = iterations + 1
             n = iterateCollatz(n)
             lbxSingleCollatz.Items.Add(iterations & vbTab & n)
